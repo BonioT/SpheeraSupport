@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spheera Support</title>
+    <meta name="description" content="Official support page for Spheera - Find your calm through breathing." />
+    <!-- Assicurati che l'icona si chiami AppIcon.png nella repo -->
+    <link rel="icon" type="image/png" href="AppIcon.png" />
+    <style>
+        :root {
+            --bg: #020408;
+            --bg-soft: #050a14;
+            --card: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --muted: #8e99aa;
+            --accent: #22A6D2; /* Il blu vibrante della tua sfera */
+            --accent-glow: rgba(34, 166, 210, 0.3);
+            --radius: 30px;
+            --max: 1000px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+            background: radial-gradient(circle at top, #081221 0%, #020408 100%);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            background: rgba(2, 4, 8, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .brand span { color: var(--accent); }
+
+        .nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav a:hover { color: var(--accent); }
+
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .app-icon-main {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(3.2rem, 9vw, 5rem);
+            line-height: 1.0;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            background: linear-gradient(180deg, #FFFFFF 0%, #A3AAB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead {
+            margin: 28px auto;
+            max-width: 580px;
+            color: var(--muted);
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+            padding: 0 36px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.15, 0, 0.15, 1);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 15px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+            filter: brightness(1.15);
+        }
+
+        section { padding: 50px 0; }
+
+        .section-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: 12px; }
+        .feature p { color: var(--muted); font-size: 1.05rem; }
+
+        .support-email {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: block;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+        
+        .support-email:hover { opacity: 0.8; }
+
+        footer {
+            padding: 80px 0 40px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .team-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 3.5rem; }
+            .section-card { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <img src="AppIcon.png" alt="Spheera">
+                <div>Spheera</div>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#support">Support</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <img src="AppIcon.png" alt="Spheera Icon" class="app-icon-main">
+                <h1>Just Breathe.</h1>
+                <p class="lead">Spheera is your visual guide to calming your mind. Regain control in moments of anxiety with a simple, rhythmic pulse.</p>
+                
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="mailto:tonybonny2001@gmail.com">Contact Support</a>
+                    <a class="btn btn-secondary" href="#about">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container section-card">
+                <h2>The Science of Calm</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Visual Pulse</h3>
+                        <p>Sync your breath with the expanding sphere to naturally slow your heart rate and calm your nervous system.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Anti-Anxiety</h3>
+                        <p>Designed for immediate relief during panic attacks or high-stress situations. No setup, just calm.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Total Privacy</h3>
+                        <p>No accounts, no tracking. Your journey to peace is entirely private and stays on your device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" style="text-align: center;">
+            <div class="container">
+                <h2>Need help?</h2>
+                <p class="lead">If you have questions, feedback, or need technical assistance, we are here for you.</p>
+                <a class="support-email" href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="team-tag">BY TEAM KABANA</div>
+            <div style="margin-bottom: 10px;">
+                Handcrafted with care by Antonio, Antimo, Elizbar, Fahil, & Federica.
+            </div>
+            <div>&copy; 2026 Spheera. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
