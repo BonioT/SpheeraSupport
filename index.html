@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spheera Support</title>
-    <meta name="description" content="Official support page for Spheera - Find your calm through breathing." />
+    <title>Spheera — Find Your Calm</title>
+    <meta name="description" content="Official support page for Spheera. Regain control and calm your mind through rhythmic breathing." />
     
-    <link rel="icon" type="image/png" href="AppIcon.png" />
+    <!-- Favicon - Fixed filename to lowercase 'i' -->
+    <link rel="icon" type="image/png" href="Appicon.png" />
+    
     <style>
         :root {
             --bg: #020408;
@@ -16,20 +18,23 @@
             --text: #ffffff;
             --muted: #8e99aa;
             --accent: #22A6D2; 
-            --accent-glow: rgba(34, 166, 210, 0.3);
+            --accent-glow: rgba(34, 166, 210, 0.4);
             --radius: 30px;
             --max: 1000px;
         }
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
-            background: radial-gradient(circle at top, #081221 0%, #020408 100%);
+            background: #020408;
+            background: radial-gradient(circle at 50% -20%, #0a1f3d 0%, #020408 70%);
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
@@ -43,7 +48,7 @@
             z-index: 100;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            background: rgba(2, 4, 8, 0.8);
+            background: rgba(2, 4, 8, 0.7);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -51,28 +56,30 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
+            padding: 18px 0;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+            color: var(--text);
         }
 
         .brand img {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
         .brand span { color: var(--accent); }
 
-        .nav a {
+        .nav-links a {
             color: var(--muted);
             text-decoration: none;
             margin-left: 28px;
@@ -81,35 +88,42 @@
             transition: 0.2s;
         }
 
-        .nav a:hover { color: var(--accent); }
+        .nav-links a:hover { color: var(--accent); }
 
         .hero {
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
             text-align: center;
+            position: relative;
         }
 
+        /* Fixed filename to Appicon.png */
         .app-icon-main {
-            width: 120px;
-            height: 120px;
-            border-radius: 28px;
-            margin-bottom: 32px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow);
+            width: 128px;
+            height: 128px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
+            transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        
+        .app-icon-main:hover {
+            transform: scale(1.05) rotate(2deg);
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(3.2rem, 9vw, 5rem);
-            line-height: 1.0;
+            font-size: clamp(3.5rem, 10vw, 5.5rem);
+            line-height: 0.95;
             font-weight: 800;
-            letter-spacing: -0.05em;
-            background: linear-gradient(180deg, #FFFFFF 0%, #A3AAB5 100%);
+            letter-spacing: -0.06em;
+            background: linear-gradient(180deg, #FFFFFF 30%, rgba(255,255,255,0.5) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .lead {
-            margin: 28px auto;
-            max-width: 580px;
+            margin: 32px auto;
+            max-width: 600px;
             color: var(--muted);
             font-size: 1.4rem;
             font-weight: 400;
@@ -118,108 +132,135 @@
 
         .hero-actions {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            margin-top: 48px;
+            margin-top: 56px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 56px;
-            padding: 0 36px;
-            border-radius: 999px;
+            height: 60px;
+            padding: 0 40px;
+            border-radius: 18px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s cubic-bezier(0.15, 0, 0.15, 1);
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.15, 0, 0.15, 1);
         }
 
         .btn-primary {
             background: var(--accent);
             color: #fff;
-            box-shadow: 0 15px 30px var(--accent-glow);
+            box-shadow: 0 12px 24px var(--accent-glow);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
         }
 
         .btn:hover {
-            transform: scale(1.03);
-            filter: brightness(1.15);
+            transform: translateY(-4px);
+            filter: brightness(1.1);
         }
 
-        section { padding: 50px 0; }
+        section { padding: 80px 0; }
 
         .section-card {
             background: var(--card);
             border: 1px solid var(--card-border);
             border-radius: var(--radius);
-            padding: 60px 40px;
+            padding: 80px 40px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .feature h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: 12px; }
-        .feature p { color: var(--muted); font-size: 1.05rem; }
+        .feature h3 { 
+            color: var(--accent); 
+            font-size: 1.5rem; 
+            margin-bottom: 16px; 
+            letter-spacing: -0.02em;
+        }
+        .feature p { color: var(--muted); font-size: 1.1rem; margin: 0; }
 
         .support-email {
             color: var(--accent);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.3rem;
-            display: block;
-            margin-top: 15px;
-            transition: 0.2s;
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+            position: relative;
         }
         
-        .support-email:hover { opacity: 0.8; }
+        .support-email::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0.3);
+            transition: 0.3s;
+            opacity: 0.5;
+        }
+
+        .support-email:hover::after {
+            transform: scaleX(1);
+            opacity: 1;
+        }
 
         footer {
-            padding: 80px 0 40px;
+            padding: 100px 0 60px;
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-align: center;
         }
 
         .team-tag {
             display: inline-block;
-            background: rgba(255,255,255,0.05);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 15px;
+            background: rgba(34, 166, 210, 0.1);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
             color: var(--accent);
+            text-transform: uppercase;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 3.5rem; }
-            .section-card { padding: 40px 20px; }
+            h1 { font-size: 3.8rem; }
+            section { padding: 40px 0; }
+            .section-card { padding: 60px 24px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav">
-            <div class="brand">
-                <img src="AppIcon.png" alt="Spheera">
+            <a href="#" class="brand">
+                <img src="Appicon.png" alt="Spheera">
                 <div>Spheera</div>
-            </div>
-            <nav>
+            </a>
+            <nav class="nav-links">
                 <a href="#about">About</a>
                 <a href="#support">Support</a>
                 <a href="privacy.html">Privacy</a>
@@ -230,9 +271,9 @@
     <main>
         <section class="hero">
             <div class="container">
-                <img src="AppIcon.png" alt="Spheera Icon" class="app-icon-main">
+                <img src="Appicon.png" alt="Spheera Icon" class="app-icon-main">
                 <h1>Just Breathe.</h1>
-                <p class="lead">Spheera is your visual guide to calming your mind. Regain control in moments of anxiety with a simple, rhythmic pulse.</p>
+                <p class="lead">Spheera is your visual guide to calming your mind. Regain control in moments of stress with a simple, rhythmic pulse.</p>
                 
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="mailto:tonybonny2001@gmail.com">Contact Support</a>
@@ -247,24 +288,24 @@
                 <div class="features">
                     <div class="feature">
                         <h3>Visual Pulse</h3>
-                        <p>Sync your breath with the expanding sphere to naturally slow your heart rate and calm your nervous system.</p>
+                        <p>Sync your breath with the expanding sphere to naturally slow your heart rate and ground your senses.</p>
                     </div>
                     <div class="feature">
-                        <h3>Anti-Anxiety</h3>
-                        <p>Designed for immediate relief during panic attacks or high-stress situations. No setup, just calm.</p>
+                        <h3>Immediate Relief</h3>
+                        <p>Designed for high-stress situations. No setup, no complicated menus. Just open and breathe.</p>
                     </div>
                     <div class="feature">
                         <h3>Total Privacy</h3>
-                        <p>No accounts, no tracking. Your journey to peace is entirely private and stays on your device.</p>
+                        <p>No accounts, no tracking. Your mindfulness data remains entirely private and stays on your device.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="support" style="text-align: center;">
+        <section id="support" style="text-align: center; padding-bottom: 120px;">
             <div class="container">
                 <h2>Need help?</h2>
-                <p class="lead">If you have questions, feedback, or need technical assistance, we are here for you.</p>
+                <p class="lead">Have questions, feedback, or need technical assistance? We're here for you.</p>
                 <a class="support-email" href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
             </div>
         </section>
@@ -273,10 +314,10 @@
     <footer>
         <div class="container">
             <div class="team-tag">BY TEAM KABANA</div>
-            <div style="margin-bottom: 10px;">
-                Handcrafted with care by Antonio, Antimo, Elizbar, Fahil, & Federica.
+            <div style="margin-bottom: 12px; font-weight: 500;">
+                Handcrafted by Antonio, Antimo, Elizbar, Fahil, & Federica.
             </div>
-            <div>&copy; 2026 Spheera. All rights reserved.</div>
+            <div style="opacity: 0.6;">&copy; 2026 Spheera. All rights reserved.</div>
         </div>
     </footer>
 </body>
