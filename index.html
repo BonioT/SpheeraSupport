@@ -6,7 +6,7 @@
     <title>Spheera — Find Your Calm</title>
     <meta name="description" content="Official support page for Spheera. Regain control and calm your mind through rhythmic breathing." />
     
-    <!-- Favicon - Fixed filename to lowercase 'i' -->
+    
     <link rel="icon" type="image/png" href="Appicon.png" />
     
     <style>
@@ -77,8 +77,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
-        .brand span { color: var(--accent); }
-
         .nav-links a {
             color: var(--muted);
             text-decoration: none;
@@ -96,18 +94,12 @@
             position: relative;
         }
 
-        /* Fixed filename to Appicon.png */
         .app-icon-main {
             width: 128px;
             height: 128px;
             border-radius: 30px;
             margin-bottom: 40px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
-            transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
-        }
-        
-        .app-icon-main:hover {
-            transform: scale(1.05) rotate(2deg);
         }
 
         h1 {
@@ -143,7 +135,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 60px;
+            height: 64px;
             padding: 0 40px;
             border-radius: 18px;
             text-decoration: none;
@@ -153,9 +145,15 @@
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: #000;
             color: #fff;
-            box-shadow: 0 12px 24px var(--accent-glow);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary img {
+            height: 24px;
+            margin-right: 12px;
         }
 
         .btn-secondary {
@@ -167,10 +165,18 @@
 
         .btn:hover {
             transform: translateY(-4px);
-            filter: brightness(1.1);
+            filter: brightness(1.2);
         }
 
         section { padding: 80px 0; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 48px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
 
         .section-card {
             background: var(--card);
@@ -196,6 +202,34 @@
         }
         .feature p { color: var(--muted); font-size: 1.1rem; margin: 0; }
 
+        /* FAQ Styling */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            text-align: left;
+        }
+
+        .faq-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .faq-item p {
+            color: var(--muted);
+            margin: 0;
+            font-size: 1rem;
+        }
+
         .support-email {
             color: var(--accent);
             text-decoration: none;
@@ -203,28 +237,8 @@
             font-size: 1.5rem;
             display: inline-block;
             margin-top: 20px;
-            transition: 0.3s;
-            position: relative;
         }
         
-        .support-email::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0.3);
-            transition: 0.3s;
-            opacity: 0.5;
-        }
-
-        .support-email:hover::after {
-            transform: scaleX(1);
-            opacity: 1;
-        }
-
         footer {
             padding: 100px 0 60px;
             color: var(--muted);
@@ -247,8 +261,7 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 3.8rem; }
-            section { padding: 40px 0; }
-            .section-card { padding: 60px 24px; }
+            .faq-grid { grid-template-columns: 1fr; }
             .btn { width: 100%; }
         }
     </style>
@@ -262,6 +275,7 @@
             </a>
             <nav class="nav-links">
                 <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
                 <a href="#support">Support</a>
                 <a href="privacy.html">Privacy</a>
             </nav>
@@ -276,8 +290,11 @@
                 <p class="lead">Spheera is your visual guide to calming your mind. Regain control in moments of stress with a simple, rhythmic pulse.</p>
                 
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="mailto:tonybonny2001@gmail.com">Contact Support</a>
-                    <a class="btn btn-secondary" href="#about">Learn More</a>
+                    <a class="btn btn-primary" href="https://apps.apple.com/it/app/spheera/id6761784789?l=en-GB" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" alt="Apple Logo">
+                        Download on the App Store
+                    </a>
+                    <a class="btn btn-secondary" href="mailto:tonybonny2001@gmail.com">Contact Support</a>
                 </div>
             </div>
         </section>
@@ -302,10 +319,34 @@
             </div>
         </section>
 
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>How does Spheera help?</h4>
+                        <p>By providing a simple visual cue, Spheera helps you focus on your breathing, which is scientifically proven to lower stress and anxiety levels.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is it free to use?</h4>
+                        <p>Yes, Spheera is currently free to download and use. Our mission is to make mindfulness accessible to everyone when they need it most.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Why use 432Hz audio?</h4>
+                        <p>The 432Hz frequency is known for its calming properties. We've included optional audio to help you immerse yourself deeper in your practice.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Does it work offline?</h4>
+                        <p>Absolutely. Spheera works entirely offline, ensuring you can find your calm even in airplane mode or remote locations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="support" style="text-align: center; padding-bottom: 120px;">
             <div class="container">
-                <h2>Need help?</h2>
-                <p class="lead">Have questions, feedback, or need technical assistance? We're here for you.</p>
+                <h2 class="section-title">Still have questions?</h2>
+                <p class="lead">Have feedback or need technical assistance? We're here for you.</p>
                 <a class="support-email" href="mailto:tonybonny2001@gmail.com">tonybonny2001@gmail.com</a>
             </div>
         </section>
@@ -313,9 +354,9 @@
 
     <footer>
         <div class="container">
-            <div class="team-tag">BY TEAM KABANA</div>
+            <div class="team-tag">AhPaolo Team</div>
             <div style="margin-bottom: 12px; font-weight: 500;">
-                Handcrafted by Antonio, Antimo, Elizbar, Fahil, & Federica.
+                Handcrafted with care by Antonio, Giulia, Antonella, Antimo, Pierluigi, & Alessandro.
             </div>
             <div style="opacity: 0.6;">&copy; 2026 Spheera. All rights reserved.</div>
         </div>
